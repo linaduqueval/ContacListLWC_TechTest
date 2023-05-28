@@ -1,0 +1,45 @@
+<template>
+    <template if:true={contactData}>
+        <lightning-card title="Contact List" icon-name="standard:contact">
+            <div class="slds-m-around_medium">
+                <lightning-datatable
+                    key-field="id"
+                    data={recordsToDisplay}
+                    show-row-number-column
+                    hide-checkbox-column
+                    columns={columns}>
+                </lightning-datatable>
+            </div>
+            <div slot="footer">
+                <div class="page-buttons">
+                    <div class="container">
+                        <p>Show &nbsp;</p><lightning-combobox
+                            name="pageSizeOpt"
+                            label=""
+                            variant="label-hidden"
+                            value={value}
+                            placeholder="Select"
+                            options={pageOptions}
+                            onchange={handleChange}>
+                        </lightning-combobox>
+                        <p>&nbsp; records per page</p>
+                    </div>
+                    <lightning-button-group>
+                        <lightning-button icon-name="utility:chevronleft" label="Previous" 
+                                        alternative-text="Previous" onclick={previousPage} disabled={disablenext}>
+                        </lightning-button>
+                        <lightning-button icon-name="utility:chevronright" label="Next" 
+                                    alternative-text="Next" onclick={nextPage} disabled={disableprevious}>
+                        </lightning-button>
+                    </lightning-button-group>
+                </div>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:false={contactData}>
+        <lightning-card>
+            <h1 style="text-align:center;">Error</h1>
+            <p style="text-align:center;">There is no data to show.</p>
+        </lightning-card>
+    </template>
+</template>

@@ -1,0 +1,12 @@
+.page-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
